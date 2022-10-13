@@ -1,7 +1,7 @@
-#include <stdio.h>
+#include <studio.h>
 /**
- * main - Entry
- * Return; Always 0
+ * main - Prints a text
+ * Return: Always 0 (sucess)
  */
 int main(void)
 {
