@@ -22,11 +22,11 @@ int main(void)
 	{
 		printf(" and is 0");
 	}
-	if (a < 6 && x != 0)
+	if (a < 6 && a != 0)
 	{
-		printf(" and is less than 6 and not 0")
+		printf(" and is less than 6 and not 0");
 	}
-	printf("\n")
+	printf("\n");
 	return (0);
 }
 
