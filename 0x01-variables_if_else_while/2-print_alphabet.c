@@ -1,21 +1,17 @@
 #include <stdio.h>
-#include <unistd.h>
+
 /**
- * main - Entry
- * Description: prints the alphabet in lowercase\n
- * Return: Alwaysa 0
+ * main - Prints the alphabetic
+ *
+ * Return: Always (Success)
  */
 int main(void)
 {
 	char c;
 
-	c = 'a';
-	if
-		(c <= 'z');
-	{
+	for (c = 'a'; c <= 'z'; c++)
 		putchar(c);
-		c++;
-	}
+
 	putchar('\n');
 	return (0);
 }
