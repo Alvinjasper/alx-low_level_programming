@@ -2,7 +2,6 @@
 
 /**
  * main - Print _putchar
- *
  * is written by Alvin
  * return: 0
  */
