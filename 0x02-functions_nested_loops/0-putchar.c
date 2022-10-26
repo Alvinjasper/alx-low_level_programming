@@ -1,7 +1,8 @@
 #include "main.h"
 
 /**
- * main - print _putchar
+ * main - Print _putchar
+ *
  * is written by Alvin
  * return: 0
  */
