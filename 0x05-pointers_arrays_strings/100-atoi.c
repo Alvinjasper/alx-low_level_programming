@@ -2,8 +2,8 @@
 
 /**
  * _atoi - converts a string into an interger
- * @s: the strings
- * Return: value
+ * @s: input
+ * Return:  Always 0 (Success)
  */
 int _atoi(char *s)
 {
