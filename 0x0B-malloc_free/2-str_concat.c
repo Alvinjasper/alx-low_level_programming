@@ -3,8 +3,8 @@
 #include <stdlib.h>
 /**
  * str_concat - get ends of input and add together for size
- * s1: input 1 to concat
- * s2: input 2 to cancat
+ * @s1: input 1 to concat
+ * @s2: input 2 to cancat
  * Return: concat of s1 and s2
  */
 char *str_concat(char *s1, char *s2)
