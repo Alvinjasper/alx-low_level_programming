@@ -1,29 +1,30 @@
 #include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
 
 /**
- * main - Entry point
- * 
- * Return: Always 0 (Success)
+ * main - print all single digit numbers of base 10
+ *
+ * Return: 0
  */
 int main(void)
 {
-	int d;
+	int x;
+	int y;
 
-	for (d = 0; d < 90; d++)
+	for (x = '0' ; x <= '9'; x++)
 	{
-		for ()
+		for (y = '0' ; y <= '9'; y++)
 		{
-			putchar((d / 10) + '0');
-			putchar((d % 10) + '0');
+			if (y > x)
+			{
+				putchar(x);
+				putchar(y);
+			if (!(x == '8' && y == '9'))
+			{
+				putchar(',');
+				putchar(' ');
+			}
+			}
 		}
-		if (d != 89)
-		{
-			putchar(',');
-			putchar(' ');
-		}
-
 	}
 	putchar('\n');
 	return (0);
