@@ -1,4 +1,5 @@
-#include "mai.h"
+#include "main.h"
+
 /**
  * set_bit - Entry Point
  * @n: input
@@ -7,9 +8,14 @@
  */
 int set_bit(unsigned long int *n, unsigned int index)
 {
-	if (index >= (sizeof(*n) * 8))
+	unsigned long int bits;
+
+	if (n == NULL)
 		return (-1);
 
-	*n |= 1 << index;
+	bits = 1 << index;
+
+	*n = *n | bits;
+
 	return (1);
 }
