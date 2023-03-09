@@ -1,59 +1,47 @@
-#include <stdio.h>
+#include "main.h"
 
 /**
- * print_line - prints a buffer line
- * @b: the pointed buffer
- * @c: the current position in buffer
- * @size: the max size of the content to print
+ * infinite_add - adds two numbers
+ * @n1: first number
+ * @n2: second number
+ * @r: buffer for result
+ * @size_r: buffer size
+ * ahhh! Crazy task! Expand your knowledge
+ *  Return: address of r or 0
  */
-
-void	print_line(char *b, int c, int size)
+char *infinite_add(char *n1, char *n2, char *r, int size_r)
 {
-	int i = 0;
+	int i, j, k, l, m, n;
 
-	printf("%08x: ", c);
-	while (i < 10)
+	for (i = 0; n1[i]; i++)
+		;
+	for (j = 0; n2[j]; j++)
+		;
+	if (i > size_r || j > size_r)
+		return (0);
+	m = 0;
+	for (i -= 1, j -= 1, k = 0; k < size_r - 1; i--, j--, k++)
 	{
-		if (i + c >= size)
-			printf("  ");
-		else
-			printf("%02x", b[i + c]);
-		if (i % 2 != 0)
-			printf(" ");
-		i++;
+		n = m;
+		if (i >= 0)
+			n += n1[i] - '0';
+		if (j >= 0)
+			n += n2[j] - '0';
+		if (i < 0 && j < 0 && n == 0)
+		{
+			break;
+		}
+		m = n / 10;
+		r[k] = n % 10 + '0';
 	}
-
-	i = 0;
-	while (i < 10)
+	r[k] = '\0';
+	if (i >= 0 || j >= 0 || m)
+		return (0);
+	for (k -= 1, l = 0; l < k; k--, l++)
 	{
-		if (i + c < size)
-		{
-			if ((b[i + c] < 32 || b[i + c] > 126))
-				printf(".");
-			else
-				printf("%c", b[i + c]);
-		}
-		i++;
+		m = r[k];
+		r[k] = r[l];
+		r[l] = m;
 	}
-	printf("\n");
-}
-
-/**
- * print_buffer - prints a buffer
- * @b: the pointed buffer
- * @size: the size of the content to print
- */
-
-void	print_buffer(char *b, int size)
-{
-	int i = 0;
-
-	if (size <= 0)
-		printf("\n");
-	else
-		while (i < size)
-		{
-			print_line(b, i, size);
-			i += 10;
-		}
+	return (r);
 }
