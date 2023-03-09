@@ -1,54 +1,59 @@
-#include "main.h"
 #include <stdio.h>
 
 /**
- * print_buffer - print a buffer 10 bytes at a time, displaying the line
- * number in hex and byte pairs in hex
- *
- * @b: string to print from
- * @size: size of buffer
- *
- * Return: void
+ * print_line - prints a buffer line
+ * @b: the pointed buffer
+ * @c: the current position in buffer
+ * @size: the max size of the content to print
  */
-void print_buffer(char *b, int size)
-{
-	int i, counter = 0, size2 = size;
-	char *ptr = b;
 
-	if (size == 0)
-		printf("\n");
-	while (size > 0)
+void	print_line(char *b, int c, int size)
+{
+	int i = 0;
+
+	printf("%08x: ", c);
+	while (i < 10)
 	{
-		printf("%08x:", counter);
-		i = 0;
-		while (size > 0 && i < 10)
-		{
-			if (!(i % 2))
-				printf(" ");
-			printf("%02x", *ptr++);
-			i++;
-			size--;
-			counter++;
-		}
-		while (counter % 10 != 0)
-		{
-			if (!(counter % 2))
-				printf(" ");
+		if (i + c >= size)
 			printf("  ");
-			counter++;
-		}
-		printf(" ");
-		i = 0;
-		while (size2 > 0 && i < 10)
-		{
-			if (*b > 31 && *b != 127)
-				printf("%c", *b);
-			else
-				printf(".");
-			size2--;
-			i++;
-			b++;
-		}
-		printf("\n");
+		else
+			printf("%02x", b[i + c]);
+		if (i % 2 != 0)
+			printf(" ");
+		i++;
 	}
+
+	i = 0;
+	while (i < 10)
+	{
+		if (i + c < size)
+		{
+			if ((b[i + c] < 32 || b[i + c] > 126))
+				printf(".");
+			else
+				printf("%c", b[i + c]);
+		}
+		i++;
+	}
+	printf("\n");
+}
+
+/**
+ * print_buffer - prints a buffer
+ * @b: the pointed buffer
+ * @size: the size of the content to print
+ */
+
+void	print_buffer(char *b, int size)
+{
+	int i = 0;
+
+	if (size <= 0)
+		printf("\n");
+	else
+		while (i < size)
+		{
+			print_line(b, i, size);
+			i += 10;
+		}
 }
