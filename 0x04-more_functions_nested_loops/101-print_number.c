@@ -1,24 +1,28 @@
 #include "main.h"
+
 /**
- * print_number - prints an integer
- * @n:.input integer parameter
- * owned by zachee
+ * print_number - prints number on the standard output
+ * @n: the number to be printed
  */
 
-
-void print_number(int n)
+void	print_number(int n)
 {
-	unsigned int i = n;
-
 	if (n < 0)
-	{
-		_putchar(45);
-		i = -i;
+		_putchar('-');
 
-	}
-	if (i / 10)
-	{
-		print_number(i / 10);
-	}
-	_putchar(i % 10 + '0');
+	if (n >= 10 || n <= -10)
+		print_number(_abs(n / 10));
+	_putchar(_abs(n % 10) + '0');
+}
+
+/**
+ * _abs - returns absolute value of given int
+ * @n: number for which we want to get the absolute value
+ *
+ * Return: absolute value of number n
+ */
+
+int		_abs(int n)
+{
+	return ((n < 0) ? -n : n);
 }
