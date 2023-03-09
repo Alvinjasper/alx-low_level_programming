@@ -1,47 +1,28 @@
 #include "main.h"
 
 /**
- * print_number - Function that prints an integer.
- * @n: int type number
- * Description: Can only use _putchar to print.
+ * print_number - prints number on the standard output
+ * @n: the number to be printed
  */
-void print_number(int n)
+
+void	print_number(int n)
 {
-	long m; /* power of 10 */
-	int c; /* boolean check */
-	long num; /* convert int to long */
-
-	num = n;
-	/* negatives */
-	if (num < 0)
-	{
-		num *= -1;
+	if (n < 0)
 		_putchar('-');
-	}
 
-	/* count up */
-	m = 1;
-	c = 1;
-	while (c)
-	{
-		if (num / (m * 10) > 0)
-			m *= 10;
-		else
-			c = 0;
-	}
+	if (n >= 10 || n <= -10)
+		print_number(_abs(n / 10));
+	_putchar(_abs(n % 10) + '0');
+}
 
-	/* count down */
-	while (num >= 0)
-	{
-		if (m == 1)
-		{
-			_putchar(num % 10 + '0');
-			num = -1;
-		}
-		else
-		{
-			_putchar((num / m % 10) + '0');
-			m /= 10;
-		}
-	}
+/**
+ * _abs - returns absolute value of given int
+ * @n: number for which we want to get the absolute value
+ *
+ * Return: absolute value of number n
+ */
+
+int		_abs(int n)
+{
+	return ((n < 0) ? -n : n);
 }
